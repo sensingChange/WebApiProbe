@@ -1,0 +1,27 @@
+{
+  "name": "webapiprobe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Bruno Lusvarghi Fernandes <brunonyg@gmail.com>",
+  
+  "conntributors":[
+    "Bruno Bezerra da Silva <bruno.bezerra.silva.1993@gmail.com>",
+    "Maythê Alves Bragança Tavares <maythe.alves@hotmal.com>",
+    "Tainan de Fátima Ferraz Mafra<tainan_mafra@hotmail.com>"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dateformat": "^3.0.3",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
+  }
+}
