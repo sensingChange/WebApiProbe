@@ -1,5 +1,5 @@
 'use strict';
-var db = require('../database/connection');
+var db = require('../database/mongoose');
 const config = require('../../config');
 
 exports.list_measurements = function(req, res) {
@@ -10,6 +10,6 @@ exports.list_measurements = function(req, res) {
     
   
 exports.insert_measurements = function(req, res) {
-  db.connect();
-  db.insertMeasurement(req.body);
+  console.log(req.body);
+  db.insertMeasurements(req.body);
 };  

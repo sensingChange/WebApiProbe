@@ -8,8 +8,7 @@
     "start": "nodemon server.js"
   },
   "author": "Bruno Lusvarghi Fernandes <brunonyg@gmail.com>",
-  
-  "conntributors":[
+  "conntributors": [
     "Bruno Bezerra da Silva <bruno.bezerra.silva.1993@gmail.com>",
     "Maythê Alves Bragança Tavares <maythe.alves@hotmal.com>",
     "Tainan de Fátima Ferraz Mafra<tainan_mafra@hotmail.com>"
@@ -22,6 +21,7 @@
     "body-parser": "^1.18.2",
     "dateformat": "^3.0.3",
     "express": "^4.16.3",
+    "mongoose": "^5.0.17",
     "mysql": "^2.15.0"
   }
 }

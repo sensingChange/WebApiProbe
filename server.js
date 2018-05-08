@@ -7,8 +7,8 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000;
 
-app.use(bodyParser.json({ type: 'application/json'}))
-//app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json({ type: 'application/json'}));
+//
   
   
   var routes = require('./api/routes/measurementRoute'); //importing route
