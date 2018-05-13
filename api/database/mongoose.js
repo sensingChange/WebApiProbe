@@ -7,17 +7,19 @@ db.on('error', console.error);
 var measurementSchema;
 var Measurement;
 
-
-  
-   measurementSchema = new Mongoose.Schema({
+    measurementSchema = new Mongoose.Schema({
     macaddress:String,
     name: String,
-    date: Date,
+    timestamp: Date,
+    luminosity: {unity:String,value: Mongoose.Schema.Types.Decimal128},
     air:{humidity:{value: Mongoose.Schema.Types.Decimal128,unity: String},
     temperature:{value:Mongoose.Schema.Types.Decimal128,unity:String}},
     soil:{humidity:{value:Mongoose.Schema.Types.Decimal128,unity:String},
-    temperature:{value:Mongoose.Schema.Types.Decimal128,scale:String,unity:String}}
-  });
+    temperature:{value:Mongoose.Schema.Types.Decimal128,scale:String,unity:String}},
+    gps:{geoJson:{
+     coordinates:[Number,Number]},
+      dmm:{latitude:Number,longitude:Number}}
+    });
   
   Mongoose.connect('mongodb://localhost/monitoring');
   
@@ -47,3 +49,53 @@ exports.insertMeasurements =  function(data){
     return true;  
     
   };
+
+  
+exports.getLastMeasurement = async  function(){
+  Measurement = Mongoose.model('Measurement', measurementSchema);
+  var result = [];
+  await Measurement.findOne({},{},{sort:{'timestamp':-1}},function(err,data){
+    result =  data;
+  });
+ return result; 
+};
+
+
+exports.getMonthMeasurement = async function(){
+  Measurement = Mongoose.model('Measurement', measurementSchema);
+  var result = [];
+  await Measurement.aggregate([
+    {
+     $match:{
+        timestamp:{
+          $gte: new Date("2018-05-01T00:00:00.000Z"),
+          $lt: new Date("2018-05-31T23:59:59.000Z")
+        }
+     } 
+  }],
+    function(err,data){
+      result =  data;
+      console.log(data);
+  });
+ return result; 
+};
+
+
+exports.getDateMeasurement = async function(date){
+  Measurement = Mongoose.model('Measurement', measurementSchema);
+  var result = [];
+  await Measurement.aggregate([
+    {
+     $match:{
+        timestamp:{
+          $gte: new Date(date + "T00:00:00.000Z"),
+          $lt: new Date(date + "T23:59:59.999Z")
+        }
+     } 
+  }],
+    function(err,data){
+      result =  data;
+      console.log(data);
+  });
+ return result; 
+};
