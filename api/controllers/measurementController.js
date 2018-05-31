@@ -26,6 +26,11 @@ exports.getMonthMeasurement = async function (req, res) {
 
 exports.getDateMeasurement = async function (req, res) {
   
-   let ret = await db.getDateMeasurement(req.params.date);
+   let ret = await db.getDateMeasurement(req.params.date,req.params.macaddress);
     res.send(ret);
 };  
+
+exports.getDistinctDevices = async function(req,res){
+    console.log("Distinct Device");
+    res.send(await db.getDistinctDevices());
+};

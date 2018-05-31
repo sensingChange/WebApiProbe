@@ -81,17 +81,18 @@ exports.getMonthMeasurement = async function(){
 };
 
 
-exports.getDateMeasurement = async function(date){
+exports.getDateMeasurement = async function(date,mac){
   Measurement = Mongoose.model('Measurement', measurementSchema);
   var result = [];
   await Measurement.aggregate([
     {
      $match:{
+        macaddress:mac, 
         timestamp:{
           $gte: new Date(date + "T00:00:00.000Z"),
           $lt: new Date(date + "T23:59:59.999Z")
         }
-     } 
+     }
   }],
     function(err,data){
       result =  data;
@@ -99,3 +100,25 @@ exports.getDateMeasurement = async function(date){
   });
  return result; 
 };
+
+
+exports.getDistinctDevices = async function(){
+
+  Measurement = Mongoose.model('measurement',measurementSchema);
+
+  var result = [];
+  var listMac = [];
+  await Measurement.find({}).distinct('macaddress',function (err,data) {
+    listMac = data;
+    });
+
+    for(let i =0;i<listMac.length;i++)
+    {
+     result.push(await  Measurement.findOne({'macaddress':listMac[i]},{},{sort:{'timestamp':-1}}).exec());
+      
+    }
+console.log(result);
+   
+  return result;
+
+}

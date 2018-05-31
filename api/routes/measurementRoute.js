@@ -15,7 +15,10 @@ module.exports = function(app) {
     app.route('/GetMonthMeasurement')
     .get(measurement.getMonthMeasurement);
 
-    app.route('/GetDateMeasurement/:date')
+    app.route('/GetDateMeasurement/:date/:macaddress')
     .get(measurement.getDateMeasurement);
+
+    app.route('/GetDistinctDevices')
+    .get(measurement.getDistinctDevices);
   
 };
