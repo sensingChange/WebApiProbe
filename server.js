@@ -1,4 +1,12 @@
-
+/**
+ * Created by:
+ *  Bruno Lusvarghi Fernandes
+ * 
+ *  Bruno Bezerra da Silva
+ *  Tainan de Fátima Ferraz Mafra
+ *  Maythê Alves Bragança Tavares
+ * 
+ */
 
 const bodyParser = require('body-parser');
 const config = require('./config');

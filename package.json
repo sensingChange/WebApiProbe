@@ -7,11 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "author": "Bruno Lusvarghi Fernandes <brunonyg@gmail.com>",
-  "conntributors": [
-    "Bruno Bezerra da Silva <bruno.bezerra.silva.1993@gmail.com>",
-    "Maythê Alves Bragança Tavares <maythe.alves@hotmal.com>",
-    "Tainan de Fátima Ferraz Mafra<tainan_mafra@hotmail.com>"
+  "authors":[ 
+    "Bruno Lusvarghi Fernandes <brunonyg@gmail.com>",
+    "Ibrahim Netto <ibrahim.netto@advisor.net.br>",
+    "Bruno Bezerra da Silva <bruno.bezerra.silva.1993@gmail.com>"
+  ],
+  "contributors": [
+    "Tainan de Fátima Ferraz Mafra <tainan_mafra@hotmail.com>",
+    "Maythê Alves Bragança Tavares <maythe.alves@hotmail.com>"
   ],
   "license": "ISC",
   "devDependencies": {

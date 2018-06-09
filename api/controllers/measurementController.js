@@ -1,3 +1,13 @@
+/**
+ * Created by:
+ *  Bruno Lusvarghi Fernandes
+ * 
+ *  Bruno Bezerra da Silva
+ *  Tainan de Fátima Ferraz Mafra
+ *  Maythê Alves Bragança Tavares
+ * 
+ */
+
 'use strict';
 var db = require('../database/mongoose');
 const config = require('../../config');
@@ -10,8 +20,9 @@ exports.list_measurements = function(req, res) {
     
   
 exports.insert_measurements = function(req, res) {
-  console.log(req.body);
+  
   db.insertMeasurements(req.body);
+  res.send("true");
 };  
 
 exports.getLastMeasurement = async function  (req, res) {

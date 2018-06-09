@@ -1,3 +1,13 @@
+/**
+ * Created by:
+ *  Bruno Lusvarghi Fernandes
+ * 
+ *  Bruno Bezerra da Silva
+ *  Tainan de Fátima Ferraz Mafra
+ *  Maythê Alves Bragança Tavares
+ * 
+ */
+
 'use strict';
 const Mongoose = require('mongoose');
 
